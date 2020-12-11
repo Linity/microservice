@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.com.ljw.dao.ChainLogMapper" >
+  <resultMap id="BaseResultMap" type="cn.com.ljw.entity.ChainLog" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="update_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="ip" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="opt_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="module_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="content" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="state" jdbcType="BIT" javaType="java.lang.Boolean" />
+      <arg column="app_id" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="opt_type" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="user_id" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="user_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="department" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="code" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, create_time, update_time, ip, opt_time, module_name, content, state, app_id, 
+    opt_type, user_id, user_name, department, code
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from sup_chain_log
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from sup_chain_log
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="save" parameterType="cn.com.ljw.entity.ChainLog" >
+    insert into sup_chain_log (id, create_time, update_time, 
+      ip, opt_time, module_name, 
+      content, state, app_id, 
+      opt_type, user_id, user_name, 
+      department, code)
+    values (#{id,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{ip,jdbcType=VARCHAR}, #{optTime,jdbcType=TIMESTAMP}, #{moduleName,jdbcType=VARCHAR}, 
+      #{content,jdbcType=VARCHAR}, #{state,jdbcType=BIT}, #{appId,jdbcType=VARCHAR}, 
+      #{optType,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, 
+      #{department,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.ljw.entity.ChainLog" >
+    insert into sup_chain_log
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="ip != null" >
+        ip,
+      </if>
+      <if test="optTime != null" >
+        opt_time,
+      </if>
+      <if test="moduleName != null" >
+        module_name,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="appId != null" >
+        app_id,
+      </if>
+      <if test="optType != null" >
+        opt_type,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+      <if test="department != null" >
+        department,
+      </if>
+      <if test="code != null" >
+        code,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ip != null" >
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="optTime != null" >
+        #{optTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="moduleName != null" >
+        #{moduleName,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=BIT},
+      </if>
+      <if test="appId != null" >
+        #{appId,jdbcType=VARCHAR},
+      </if>
+      <if test="optType != null" >
+        #{optType,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="department != null" >
+        #{department,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.ljw.entity.ChainLog" >
+    update sup_chain_log
+    <set >
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ip != null" >
+        ip = #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="optTime != null" >
+        opt_time = #{optTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="moduleName != null" >
+        module_name = #{moduleName,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=BIT},
+      </if>
+      <if test="appId != null" >
+        app_id = #{appId,jdbcType=VARCHAR},
+      </if>
+      <if test="optType != null" >
+        opt_type = #{optType,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="department != null" >
+        department = #{department,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null" >
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.ljw.entity.ChainLog" >
+    update sup_chain_log
+    set create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      ip = #{ip,jdbcType=VARCHAR},
+      opt_time = #{optTime,jdbcType=TIMESTAMP},
+      module_name = #{moduleName,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      state = #{state,jdbcType=BIT},
+      app_id = #{appId,jdbcType=VARCHAR},
+      opt_type = #{optType,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=VARCHAR},
+      user_name = #{userName,jdbcType=VARCHAR},
+      department = #{department,jdbcType=VARCHAR},
+      code = #{code,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

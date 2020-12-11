@@ -1,0 +1,48 @@
+# server
+server:
+  port: 8080
+  servlet:
+    context-path: /learn
+
+# spring
+spring:
+  application:
+    name: learn
+  profiles:
+    active: dev
+  mvc:
+    date-format: yyyy-MM-dd
+
+# datasource
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/chain?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&useSSL=false
+    username: root
+    password: 123456
+  druid:
+    filters: stat, wall
+    stat-view-servlet.enabled: true
+    stat-view-servlet.url-pattern: /druid/*
+    stat-view-servlet.allow: 127.0.0.1
+    web-stat-filter.url-pattern: /*
+    web-stat-filter.enabled: true
+    web-stat-filter.exclusions: "*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*"
+
+# mybatis
+mybatis:
+  check-config-location: true
+  config-location: classpath:mybatis-config.xml
+  mapper-locations: classpath:mappers/*.xml
+  type-aliases-package: cn.com.ljw.entity
+  configuration:
+    log-impl: org.apache.ibatis.logging.log4j2.Log4j2Impl
+    mapUnderscoreToCamelCase: true
+
+# 指定log4j2作为日志记录
+logging:
+    config: classpath:log4j2.xml
+    level:
+    #这个指定你的dao层，也就是mapper文件的所在包
+      cn.com.ljw.dao: DEBUG
