@@ -30,10 +30,10 @@ public class ActiveConfig {
     @Value("${spring.activemq.password}")
     private String password;
 
-    @Value("${spring.activemq.queue-name}")
+    @Value("${spring.activemq.queue-name:queue}")
     private String queueName;
 
-    @Value("${spring.activemq.topic-name}")
+    @Value("${spring.activemq.topic-name:topic}")
     private String topicName;
 
     @Bean(name = "queue")
@@ -54,8 +54,8 @@ public class ActiveConfig {
     }
 
     @Bean
-    public JmsMessagingTemplate jmsMessageTemplate(){
-        return new JmsMessagingTemplate(connectionFactory());
+    public JmsMessagingTemplate jmsMessageTemplate(ConnectionFactory connectionFactory){
+        return new JmsMessagingTemplate(connectionFactory);
     }
 
     /**

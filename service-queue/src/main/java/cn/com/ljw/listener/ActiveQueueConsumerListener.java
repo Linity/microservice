@@ -18,12 +18,12 @@ public class ActiveQueueConsumerListener {
 
     /**
      * queue模式的消费者
-     * @param applicationFormDTO
+     * @param object
      */
-    @JmsListener(destination="${spring.activemq.queue-name}", containerFactory="queueListener")
-    public void readActiveQueue(ApplicationFormDTO applicationFormDTO) {
-        System.out.println("queue接受到：" + applicationFormDTO);
-        remoteService.applyExamine(applicationFormDTO);
+    @JmsListener(destination="${spring.activemq.queue-name:queue1}", containerFactory="queueListener")
+    public void readActiveQueue(Object object) {
+        System.out.println("queue接受到：" + object);
+//        remoteService.applyExamine(object);
     }
 
 }

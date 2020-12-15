@@ -14,7 +14,7 @@ public class ActiveTopicConsumerListener {
      * topic模式的消费者
      * @param message
      */
-    @JmsListener(destination="${spring.activemq.topic-name}", containerFactory="topicListener")
+    @JmsListener(destination="${spring.activemq.topic-name:topic}", containerFactory="topicListener")
     public void readActiveQueue(String message) {
         System.out.println("topic接受到：" + message);
     }

@@ -12,7 +12,8 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
- * @author linjw
+ * @author Steph_Lin
+ * @date 2020/12/14
  */
 @Configuration
 @EnableSwagger2
@@ -21,7 +22,7 @@ public class SwaggerConfig {
     @Bean
     public Docket productApi() {
         return new Docket(DocumentationType.SWAGGER_2)
-                .groupName("web-module")
+                .groupName("queue-module")
                 .apiInfo(apiInfo())
                 .select()
                 .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
