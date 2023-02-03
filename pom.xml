@@ -26,6 +26,7 @@
 		<module>service-auth</module>
         <module>micro-common</module>
 		<module>xxl-job-admin</module>
+		<module>service-flink-cdc</module>
 	</modules>
 
 	<properties>
