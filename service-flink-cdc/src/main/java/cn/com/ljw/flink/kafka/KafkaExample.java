@@ -35,33 +35,52 @@ public class KafkaExample {
         EnvironmentSettings settings = EnvironmentSettings.newInstance().inStreamingMode().build();
         StreamTableEnvironment tableEnv = StreamTableEnvironment.create(env, settings);
 //        // 在 Flink SQL 中使用jdbc注册表 'aaa'
-        tableEnv.executeSql("CREATE TABLE aaa (" +
+//        tableEnv.executeSql("CREATE TABLE aaa (" +
+//                " id DOUBLE," +
+//                " name STRING," +
+//                " number INT," +
+//                "PRIMARY KEY(id) NOT ENFORCED" +
+//                ") WITH (" +
+//                " 'connector' = 'jdbc'," +
+//                " 'url' = 'jdbc:mysql://10.12.102.110:3306/flink?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowMultiQueries=true'," +
+//                " 'username' = 'root'," +
+//                " 'password' = 'OO9OZDUKojbpSFB26AFT0BOSEQA='," +
+//                " 'table-name' = 'aaa'" +
+//                ")");
+
+        tableEnv.executeSql("CREATE TABLE aaa_copy1 (" +
                 " id DOUBLE," +
                 " name STRING," +
                 " number INT," +
-                "PRIMARY KEY(id) NOT ENFORCED" +
+                " PRIMARY KEY(id) NOT ENFORCED" +
                 ") WITH (" +
-                " 'connector' = 'jdbc'," +
-                " 'url' = 'jdbc:mysql://10.12.102.110:3306/flink?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowMultiQueries=true'," +
+                " 'connector' = 'mysql-cdc'," +
+                " 'hostname' = '10.12.102.110'," +
+                " 'port' = '3306'," +
                 " 'username' = 'root'," +
                 " 'password' = 'OO9OZDUKojbpSFB26AFT0BOSEQA='," +
-                " 'table-name' = 'aaa'" +
+                " 'database-name' = 'flink'," +
+                " 'table-name' = 'aaa_copy1'" +
                 ")");
+
         tableEnv.executeSql("CREATE TABLE aaa_kafka (" +
                 " `id` DOUBLE," +
                 " `name` STRING," +
-                " `number` INT" +
+                " `number` INT," +
+                " PRIMARY KEY(id) NOT ENFORCED" +
                 " ) WITH (" +
-                " 'connector'='kafka'," +
-                " 'topic'='test'," +
-                " 'properties.bootstrap.servers'='10.10.77.107:9092'," +
-                " 'properties.group.id'='group'," +
-                " 'sink.partitioner'='round-robin'," +
-                " 'sink.parallelism'='1'," +
-                " 'format'='json'" +
+                " 'connector' = 'upsert-kafka'," +
+                " 'topic' = 'test'," +
+                " 'properties.bootstrap.servers' = '10.10.77.107:9092'," +
+                " 'properties.group.id' = 'group'," +
+//                " 'sink.partitioner' = 'round-robin'," +
+//                " 'sink.parallelism' = '1'," +
+//                " 'table.append-only' = 'false'," +
+                " 'key.format' = 'json'," +
+                " 'value.format' = 'json'" +
                 ")");
-        tableEnv.executeSql("SELECT * from aaa").print();
-        tableEnv.executeSql("INSERT INTO aaa_kafka SELECT id, name, number FROM aaa").print();
+//        tableEnv.executeSql("SELECT * from aaa_copy1").print();
+        tableEnv.executeSql("INSERT INTO aaa_kafka SELECT id, name, number FROM aaa_copy1").print();
         tableEnv.executeSql("SELECT * from aaa_kafka").print();
 
         env.execute();
