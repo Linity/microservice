@@ -6,6 +6,8 @@ import org.apache.flink.table.api.bridge.java.StreamTableEnvironment;
 import org.apache.flink.table.catalog.hive.HiveCatalog;
 
 /**
+ * 10.10.77.104 hadoop版本3.2.4 hive版本3.1.3
+ *
  * @author Steph_Lin
  * @date 2023/2/3
  */
