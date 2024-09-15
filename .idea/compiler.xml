@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="micro-base" />
+        <module name="service-auth" />
+        <module name="service-blockchain" />
+        <module name="service-file" />
+        <module name="service-job-executor" />
+        <module name="service-queue" />
+        <module name="service-web" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="micro-base" target="1.8" />
+      <module name="micro-service" target="1.8" />
+      <module name="service-auth" target="1.8" />
+      <module name="service-blockchain" target="1.8" />
+      <module name="service-file" target="1.8" />
+      <module name="service-job-executor" target="1.8" />
+      <module name="service-queue" target="1.8" />
+      <module name="service-web" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="micro-base" options="-parameters" />
+      <module name="service-auth" options="-parameters" />
+      <module name="service-blockchain" options="-parameters" />
+      <module name="service-file" options="-parameters" />
+      <module name="service-job-executor" options="-parameters" />
+      <module name="service-queue" options="-parameters" />
+      <module name="service-web" options="-parameters" />
+    </option>
+  </component>
+</project>

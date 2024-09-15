@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/micro-base/micro-base.iml" filepath="$PROJECT_DIR$/micro-base/micro-base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/micro-service.iml" filepath="$PROJECT_DIR$/micro-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/service-auth/service-auth.iml" filepath="$PROJECT_DIR$/service-auth/service-auth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/service-blockchain/service-blockchain.iml" filepath="$PROJECT_DIR$/service-blockchain/service-blockchain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/service-file/service-file.iml" filepath="$PROJECT_DIR$/service-file/service-file.iml" />
+      <module fileurl="file://$PROJECT_DIR$/service-job-executor/service-job-executor.iml" filepath="$PROJECT_DIR$/service-job-executor/service-job-executor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/service-queue/service-queue.iml" filepath="$PROJECT_DIR$/service-queue/service-queue.iml" />
+      <module fileurl="file://$PROJECT_DIR$/service-web/service-web.iml" filepath="$PROJECT_DIR$/service-web/service-web.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,34 +1,33 @@
 package cn.com.ljw.service;
 
-import cn.com.ljw.contract.java.logic.entity.ContractChainLog;
 import cn.com.ljw.contract.service.ChainService;
-import cn.com.ljw.dao.ChainLogMapper;
-import cn.com.ljw.entity.ChainLog;
+import cn.com.ljw.entity.ChainLogEntity;
+import cn.com.ljw.mapper.ChainLogMapper;
 import cn.com.ljw.model.LogModel;
 import cn.hyperchain.sdk.rpc.function.FuncParamReal;
+import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Date;
-import java.util.List;
 
 /**
  * Created by Steph_Lin on 2020/3/18.
  */
 @Service
+@AllArgsConstructor
 public class ChainLogService {
 
     private static final Logger logger = LoggerFactory.getLogger(ChainLogService.class);
 
-    @Autowired
-    ChainLogMapper chainLogMapper;
-    @Autowired
-    ChainService chainService;
+    private final ChainLogMapper chainLogMapper;
+    private final ChainService chainService;
 
-    public boolean save(LogModel logModel){
-//        ChainLog chainLog = new ChainLog();
+    public boolean insertChainLog(final ChainLogEntity chainLogEntity) {
+        return chainLogMapper.insert(chainLogEntity) > 0;
+    }
+
+    public boolean save(LogModel logModel) {
+//        ChainLogEntity chainLog = new ChainLogEntity();
 //        Date now = new Date();
 ////        supChainLog.setAppId(clientId);
 //        chainLog.setCode(logModel.getCode());
@@ -57,9 +56,5 @@ public class ChainLogService {
 //        return chainLogMapper.save(chainLog);
         return invoke;
     }
-
-//    public List<ContractChainLog> getContractChainLogs(){
-//
-//    }
 
 }

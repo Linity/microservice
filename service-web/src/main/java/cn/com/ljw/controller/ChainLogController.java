@@ -1,6 +1,6 @@
 package cn.com.ljw.controller;
 
-import cn.com.ljw.model.LogModel;
+import cn.com.ljw.entity.ChainLogEntity;
 import cn.com.ljw.service.ChainLogService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -27,8 +27,8 @@ public class ChainLogController {
 
     @ApiOperation("日志上链")
     @PostMapping("/saveChainLog")
-    public boolean saveChainLog(@RequestBody LogModel logModel) {
-        return chainLogService.save(logModel);
+    public boolean saveChainLog(@RequestBody ChainLogEntity chainLogEntity) {
+        return chainLogService.insertChainLog(chainLogEntity);
     }
 
 }
