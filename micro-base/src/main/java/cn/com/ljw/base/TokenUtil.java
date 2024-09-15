@@ -1,4 +1,4 @@
-package cn.com.ljw.common;
+package cn.com.ljw.base;
 
 import sun.misc.BASE64Encoder;
 
