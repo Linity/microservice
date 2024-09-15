@@ -19,15 +19,15 @@ import org.springframework.web.multipart.MultipartFile;
 @AllArgsConstructor
 public class FileController {
 
-    private final HdfsFileStorage hdfsFileStorage;
-
-    @ApiOperation("上传文件 返回文件id")
-    @PostMapping("/upload")
-    public String uploadFile(
-            @ApiParam("相对路径") @RequestParam(required = false) String basePath,
-            @ApiParam(value = "文件") @RequestPart("file") MultipartFile file) throws Exception {
-        hdfsFileStorage.getClient(HdfsConfig.convertHdfsConfig("test", "hdfs://localhost:9090"));
-        return hdfsFileStorage.upload(basePath, file.getOriginalFilename(), file.getInputStream());
-    }
+//    private final HdfsFileStorage hdfsFileStorage;
+//
+//    @ApiOperation("上传文件 返回文件id")
+//    @PostMapping("/upload")
+//    public String uploadFile(
+//            @ApiParam("相对路径") @RequestParam(required = false) String basePath,
+//            @ApiParam(value = "文件") @RequestPart("file") MultipartFile file) throws Exception {
+//        hdfsFileStorage.getClient(HdfsConfig.convertHdfsConfig("test", "hdfs://localhost:9090"));
+//        return hdfsFileStorage.upload(basePath, file.getOriginalFilename(), file.getInputStream());
+//    }
 
 }

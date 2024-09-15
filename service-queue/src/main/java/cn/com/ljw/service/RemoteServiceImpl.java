@@ -3,7 +3,7 @@ package cn.com.ljw.service;
 import cn.com.ljw.model.ApplicationFormDTO;
 import cn.com.ljw.result.ResultCodeEnum;
 import cn.com.ljw.result.ResultObject;
-import com.alibaba.fastjson.JSON;
+import cn.hutool.json.JSONUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
@@ -65,7 +65,7 @@ public class RemoteServiceImpl implements RemoteService {
         HttpHeaders headers = new HttpHeaders();
         headers.add(TOKEN, userToken);
         headers.add(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE);
-        return new HttpEntity<>(JSON.toJSON(body), headers);
+        return new HttpEntity<>(JSONUtil.parse(body), headers);
 
     }
 }

@@ -8,7 +8,6 @@ import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FSDataOutputStream;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
-import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -18,7 +17,6 @@ import java.io.InputStream;
  * @date 2024/9/13
  */
 @Slf4j
-@Service
 public class HdfsFileStorage extends FileStorageSystem {
 
     private HdfsConfig config;

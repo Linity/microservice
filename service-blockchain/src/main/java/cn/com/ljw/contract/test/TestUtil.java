@@ -1,6 +1,6 @@
 package cn.com.ljw.contract.test;
 
-import com.alibaba.fastjson.JSON;
+import cn.hutool.json.JSONUtil;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
@@ -509,7 +509,7 @@ public class TestUtil {
                 "      \"protocols\": \"\"\n" +
                 "    }\n" +
                 "  ]";
-        List<UserCenterResourceForm> userCenterResourceForms = JSON.parseArray(data, UserCenterResourceForm.class);
+        List<UserCenterResourceForm> userCenterResourceForms = JSONUtil.toList(data, UserCenterResourceForm.class);
 //        List<UserCenterResourceForm> apiList = userCenterResourceForms.stream().filter(userCenterResourceForm -> userCenterResourceForm.getResourceType().equals("4")).collect(Collectors.toList());
 //        List<Integer> parentIds = apiList.stream().map(UserCenterResourceForm::getParentId).collect(Collectors.toList());
 //        //根据parentId找到接口对应的菜单列表
@@ -599,6 +599,6 @@ public class TestUtil {
 
         });
 
-        System.out.println(JSON.toJSONString(userCenterResourceForms));
+        System.out.println(JSONUtil.toJsonPrettyStr(userCenterResourceForms));
     }
 }

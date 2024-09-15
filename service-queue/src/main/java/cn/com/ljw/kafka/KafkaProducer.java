@@ -1,6 +1,6 @@
 package cn.com.ljw.kafka;
 
-import com.alibaba.fastjson.JSONObject;
+import cn.hutool.json.JSONUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +31,7 @@ public class KafkaProducer {
     public static final String TOPIC_GROUP2 = "topic.group2";
 
     public void send(Object obj) {
-        String obj2String = JSONObject.toJSONString(obj);
+        String obj2String = JSONUtil.toJsonStr(obj);
         logger.info("准备发送消息为：{}", obj2String);
         //发送消息
         ListenableFuture<SendResult<String, Object>> future = kafkaTemplate.send(TOPIC_TEST, obj);
