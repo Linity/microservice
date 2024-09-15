@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="micro-base" />
+        <module name="serevice-flink-cdc" />
         <module name="service-auth" />
         <module name="service-blockchain" />
         <module name="service-file" />
@@ -19,6 +20,7 @@
     <bytecodeTargetLevel>
       <module name="micro-base" target="1.8" />
       <module name="micro-service" target="1.8" />
+      <module name="serevice-flink-cdc" target="8" />
       <module name="service-auth" target="1.8" />
       <module name="service-blockchain" target="1.8" />
       <module name="service-file" target="1.8" />
@@ -30,6 +32,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="micro-base" options="-parameters" />
+      <module name="serevice-flink-cdc" options="-parameters" />
       <module name="service-auth" options="-parameters" />
       <module name="service-blockchain" options="-parameters" />
       <module name="service-file" options="-parameters" />
