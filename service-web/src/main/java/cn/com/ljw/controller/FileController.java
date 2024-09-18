@@ -1,7 +1,7 @@
 package cn.com.ljw.controller;
 
-import cn.com.ljw.file.hdfs.HdfsConfig;
-import cn.com.ljw.file.hdfs.HdfsFileStorage;
+//import cn.com.ljw.file.hdfs.HdfsConfig;
+//import cn.com.ljw.file.hdfs.HdfsFileStorage;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
